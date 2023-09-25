@@ -7,23 +7,31 @@ class Board
     @stones = []
   end
 
-  def place_stone_at(x, y)
-    @stones << [x, y]
+  def place_stone_at(position)
+    @stones << position
   end
 
-  def stone_at?(x,y)
-    @stones.select do |stone|
-      return true if stone == [x,y]
+  def stone_at?(position)
+    @stones.select do |stone_position|
+      return true if stone_position == position
     end
     false
   end
 
-  def move_stone(from, to)
-    @stones.delete([from[0],from[1]])
-    place_stone_at(to[0], to[1])
+  def move_stone(from_position, to_position)
+    @stones.delete(from_position)
+    place_stone_at(to_position)
   end
 
   def present
     @stones
+  end
+end
+
+class Position
+  attr_reader :x, :y
+  def initialize(x,y)
+    @x = x
+    @y = y
   end
 end
