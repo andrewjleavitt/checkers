@@ -18,6 +18,11 @@ class Board
     false
   end
 
+  def move_stone(from, to)
+    @stones.delete([from[0],from[1]])
+    place_stone_at(to[0], to[1])
+  end
+
   def present
     @stones
   end
