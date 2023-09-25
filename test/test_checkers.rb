@@ -13,6 +13,13 @@ class TestCheckers < Minitest::Test
     assert_equal([[1,1]], board.present)
   end
 
+  def test_stone_at?
+    board = create_board
+    refute(board.stone_at?(1,1))
+    board.place_stone_at(1,1)
+    assert(board.stone_at?(1,1))
+  end
+
   def create_board
     Board.new
   end
