@@ -27,6 +27,13 @@ class TestCheckers < Minitest::Test
     assert(board.stone_at?(to_position))
   end
 
+  def test_cannot_place_on_occupied_location
+    board = create_board
+    board.place_stone_at Position.new(1,1)
+    board.place_stone_at Position.new(1,1)
+    assert_equal(1, board.stones.count)
+  end
+
   private
 
   def create_board

@@ -8,7 +8,7 @@ class Board
   end
 
   def place_stone_at(position)
-    @stones << position
+    @stones << position unless(stone_at?(position))
   end
 
   def stone_at?(position)
@@ -37,5 +37,9 @@ class Position
   def initialize(x,y)
     @x = x
     @y = y
+  end
+
+  def ==(other_pos)
+    @x == other_pos.x && @y == other_pos.y
   end
 end
