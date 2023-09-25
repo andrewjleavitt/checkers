@@ -27,7 +27,6 @@ class TestCheckers < Minitest::Test
   private
 
   def create_board
-    board = Board.new
-    board
+    Board.new
   end
 end
