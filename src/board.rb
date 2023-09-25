@@ -19,8 +19,12 @@ class Board
   end
 
   def move_stone(from_position, to_position)
-    @stones.delete(from_position)
+    pickup_stone_at(from_position)
     place_stone_at(to_position)
+  end
+
+  def pickup_stone_at(position)
+    @stones.delete(position)
   end
 
   def present
