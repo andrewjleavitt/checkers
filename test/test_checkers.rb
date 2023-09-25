@@ -10,6 +10,7 @@ class TestCheckers < Minitest::Test
   def test_place_stone
     board = create_board
     board.place_stone_at(1,1)
+    assert_equal([[1,1]], board.present)
   end
 
   def create_board

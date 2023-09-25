@@ -7,7 +7,11 @@ class Board
     @stones = []
   end
 
+  def place_stone_at(row, column)
+    @stones << [row, column]
+  end
+
   def present
-    @state
+    @stones
   end
 end
