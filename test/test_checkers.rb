@@ -6,7 +6,7 @@ class TestCheckers < Minitest::Test
     board = create_board
     assert_equal(0, board.stones.count)
   end
-  
+
   def test_stone_at?
     board = create_board
     refute(board.stone_at?(1,1))
@@ -14,8 +14,9 @@ class TestCheckers < Minitest::Test
     assert(board.stone_at?(1,1))
   end
 
+  private
+
   def create_board
     Board.new
   end
-
 end
