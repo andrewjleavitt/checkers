@@ -1,4 +1,4 @@
-class Position
+class Stone
   attr_reader :x, :y, :color
   def initialize(x,y, color)
     @x = x
