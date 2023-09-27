@@ -12,7 +12,7 @@ class TestCheckers < Minitest::Test
   end
 
   def test_stone_at?
-    stone_position = Position.new(1,1)
+    stone_position = Position.new(1,1, :red)
     refute(@board.stone_at?(stone_position))
     @board.place_stone_at(stone_position)
     @board.place_stone_at(stone_position)
@@ -20,8 +20,8 @@ class TestCheckers < Minitest::Test
   end
 
   def test_move_stone
-    initial_position = Position.new(1,1)
-    to_position = Position.new(2,3)
+    initial_position = Position.new(1,1, :red)
+    to_position = Position.new(2,3, :red)
     @board.place_stone_at(initial_position)
     @board.move_stone(initial_position, to_position)
 
@@ -30,8 +30,8 @@ class TestCheckers < Minitest::Test
   end
 
   def test_cannot_place_on_used_location
-    @board.place_stone_at Position.new(1,1)
-    @board.place_stone_at Position.new(1,1)
+    @board.place_stone_at Position.new(1,1, :red)
+    @board.place_stone_at Position.new(1,1, :red)
     assert_equal(1, @board.stones.count)
   end
 
